@@ -13,7 +13,7 @@
     </padding>
 
     <Label text="Escriu un Numero de Telèfon:" />
-    <TextField fx:id="fieldTelefon" promptText="+XX-XXX-XXXXXX" />
+    <TextField fx:id="fieldTelefon" promptText="+XX-XXXXXXXXX" />
     <Button text="Valida-ho" onAction="#validaTelefon" />
 
 </VBox>

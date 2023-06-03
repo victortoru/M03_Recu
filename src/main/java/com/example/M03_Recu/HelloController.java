@@ -21,13 +21,13 @@ public class HelloController {
             validaFormat(telefon);
             showAlert(AlertType.INFORMATION, "Numero de telèfon validat", "El numero de telèfon és vàlid");
         } catch (TelefonInvalidException e) {
-            showAlert(AlertType.ERROR, "Numero de telèfon incorrecte", "El numero de telèfon no té un format vàlid" + "\n (+XX-XXX-XXXXXX)");
+            showAlert(AlertType.ERROR, "Numero de telèfon incorrecte", "El numero de telèfon no té un format vàlid" + "\n (+XX-XXXXXXXXX)");
         }
     }
 
     //Ús d'expressions regulars per validar el nº de telèfon amb el format descrit
     private void validaFormat(String telefon) throws TelefonInvalidException {
-        String regex = "\\+\\d{2}-\\d{3}-\\d{6}";
+        String regex = "\\+\\d{2} \\d{3}\\d{6}";
         if (!Pattern.matches(regex, telefon)) {
             throw new TelefonInvalidException();
         }

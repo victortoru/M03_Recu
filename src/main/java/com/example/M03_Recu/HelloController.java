@@ -4,21 +4,19 @@ package com.example.M03_Recu;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.scene.control.Button;
 
 import java.util.regex.Pattern;
-
 public class HelloController {
+
     @FXML
     private TextField fieldTelefon;
-
-    @FXML
-    private MenuBar menuBar;
 
     @FXML
     private MenuItem exitMenuItem;
@@ -27,9 +25,12 @@ public class HelloController {
     private MenuItem helpMenuItem;
 
     @FXML
+    private TextFlow helpTextFlow;
+
+    @FXML
     private void initialize() {
         exitMenuItem.setOnAction(event -> sortirApp());
-        helpMenuItem.setOnAction(event -> helpOpcio());
+        helpMenuItem.setOnAction(event -> mostrarAjuda());
     }
 
     @FXML
@@ -72,15 +73,16 @@ public class HelloController {
         Platform.exit();
     }
 
-    private void helpOpcio() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Ajuda");
-        alert.setHeaderText("Informació adicional");
-        alert.setContentText("Aquesta app valida el format d'un numero de telèfon.\n" +
-                "El numero de telèfon ha de tenir el format +XX-XXXXXXXXX.\n" +
-                "Per exemple: +34-123456789 es un numero de telèfon vèlid.\n\n" +
-                "Per comprovar el format del nº escrit, s'haurà d'introduïr al recuadre facilitat.\n" +
-                "Projecte realitzat per Víctor Tobaruela");
-        alert.showAndWait();
+    private void mostrarAjuda() {
+        String ajudaText = "Aquesta aplicació valida el format d'un número de telèfon.\n\n"
+                + "El número de telèfon ha de tenir el format +XX-XXXXXXXXX.\n\n"
+                + "Per exemple, +34-123456789 és un número de telèfon vàlid.\n\n"
+                + "Per comprovar el format del número escrit, introdueix-lo al camp de text proporcionat.\n\n"
+                + "Projecte realitzat per Víctor Tobaruela";
+
+        Text ajudaText1 = new Text(ajudaText);
+
+        helpTextFlow.getChildren().clear();
+        helpTextFlow.getChildren().add(ajudaText1);
     }
 }

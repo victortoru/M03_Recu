@@ -7,27 +7,37 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.M03_Recu.HelloController">
-    <padding>
-        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
-    </padding>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.M03_Recu.HelloController">
+    <top>
+        <HBox alignment="TOP_RIGHT" spacing="10.0">
+        <MenuBar>
+            <menus>
+                <Menu text="Opcions">
+                    <items>
+                        <MenuItem fx:id="exitMenuItem" text="Sortir" />
+                        <MenuItem fx:id="helpMenuItem" text="Ajuda" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        </HBox>
+    </top>
 
-    <MenuBar>
-        <menus>
-            <Menu text="Opcions">
-                <items>
-                    <MenuItem fx:id="exitMenuItem" text="Sortir" />
-                    <MenuItem fx:id="helpMenuItem" text="Ajuda" />
-                </items>
-            </Menu>
-        </menus>
-    </MenuBar>
-
-    <Label text="Escriu un Numero de Telèfon:" />
-    <TextField fx:id="fieldTelefon" promptText="+XX-XXXXXXXXX" />
-    <Button text="Valida-ho" onAction="#validaTelefon" />
-
-</VBox>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+            <Label text="Escriu un Numero de Telèfon:" />
+            <TextField fx:id="fieldTelefon" promptText="+XX-XXXXXXXXX" />
+            <Button text="Valida-ho" onAction="#validaTelefon" />
+            <TextFlow fx:id="helpTextFlow" />
+        </VBox>
+    </center>
+</BorderPane>
